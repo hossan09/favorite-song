@@ -1,24 +1,43 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options                  |
+| ------------------ | ------ | ------------------------ |
+| nickname           | string | null: false              |
+| email              | string | null: false,unique: true |
+| encrypted_password | string | null: false              |
 
-* Ruby version
+- has_many :songs
 
-* System dependencies
+## songs テーブル
 
-* Configuration
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| song_name | string     | null: false                    |
+| artist    | string     | null: false                    |
+| text      | text       | null: false                    |
+| user      | references | null: false, foreign_key: true |
+| tag       | references | null: false, foreign_key: true |
 
-* Database creation
+- belongs_to :user
+- has_many :tags, through: :song_tags
 
-* Database initialization
+## song_tags テーブル
 
-* How to run the test suite
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| songs_id | references | null: false, foreign_key: true |
+| tags_id  | references | null: false, foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :song
+- belongs_to :tag
 
-* Deployment instructions
+## tags テーブル
 
-* ...
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| tag_name | string | null: false |
+
+- has_many :song_tags
+- has_many :songs through: :song_tags
