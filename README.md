@@ -9,6 +9,7 @@
 | encrypted_password | string | null: false              |
 
 - has_many :songs
+-has_many :orders
 
 ## songs テーブル
 
@@ -22,6 +23,7 @@
 
 - belongs_to :user
 - has_many :tags, through: :song_tags
+-has_many :orders
 
 ## song_tags テーブル
 
@@ -41,3 +43,14 @@
 
 - has_many :song_tags
 - has_many :songs through: :song_tags
+
+## playlists テーブル
+
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| name      | string     | null: false                    |
+| user      | references | null: false, foreign_key: true |
+| song      | references | null: false, foreign_key: true |
+
+-belongs_to :user
+-belongs_to :item
