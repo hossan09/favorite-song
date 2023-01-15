@@ -1,56 +1,61 @@
-# テーブル設計
+# アプリケーション名
+FavoriteSong(作成途中)
+# アプリケーション概要
+好きな音楽をコメントやタグをつけて投稿できる。
+投稿されたデータから曲名、アーティスト名、タグ等で対象の曲となるものを検索しプレイリストを作成することができる。
+# URL
 
-## users テーブル
+# テスト用アカウント
+* Basic認証ユーザー名: 
+* Basic認証パスワード: 
+* メールアドレス: 
+* パスワード: 
 
-| Column             | Type   | Options                  |
-| ------------------ | ------ | ------------------------ |
-| nickname           | string | null: false              |
-| email              | string | null: false,unique: true |
-| encrypted_password | string | null: false              |
+# 利用方法
+## 投稿
+* ヘッダーの新規登録ボタンよりユーザー登録をする。
+* おすすめの曲をコメントやタグをつけて投稿する。
+* 投稿内容は一覧で表示され、他のユーザーの投稿に対しいいねボタンを押せる
 
-- has_many :songs
--has_many :orders
+## プレイリスト作成
+* 投稿されている曲を選んでプレイリストを作成できる。
+* 他のユーザーのプレイリストをブックマークとして保存できる。
 
-## songs テーブル
+## 検索
+* 検索フォームより曲名やアーティスト、その曲についているタグで検索した結果を一覧表示できる。
 
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| song_name | string     | null: false                    |
-| artist    | string     | null: false                    |
-| text      | text       | null: false                    |
-| user      | references | null: false, foreign_key: true |
-| tag       | references | null: false, foreign_key: true |
 
-- belongs_to :user
-- has_many :tags, through: :song_tags
--has_many :orders
+# アプリケーションを作成した背景
+何かの拍子に自分が気に入った曲に出会うことはあるかと思いますが
+その発見の機会を手軽に増やしたいと思いました。
+そこで曲にタグを複数つけて投稿し、それを検索できるようにすることで
+自分の探している曲を手っ取り早く見つけることができると思いこのアプリを制作しました。
 
-## song_tags テーブル
+# 実装した機能について画像やGIFおよびその説明
 
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| songs_id | references | null: false, foreign_key: true |
-| tags_id  | references | null: false, foreign_key: true |
+# 実装予定の機能
+* ユーザーのフォロー機能
+* 曲の試聴機能
+* 曲のカテゴリ(ジャンル、BPM等)の充実
+* コメント機能
 
-- belongs_to :song
-- belongs_to :tag
+# データベース設計
+画像
+# 画面遷移図
+画像
 
-## tags テーブル
+# 開発環境
+* フロントエンド
+* バックエンド
+* インフラ
+* テスト
+* テキストエディタ
+* タスク管理
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| tag_name | string | null: false |
-
-- has_many :song_tags
-- has_many :songs through: :song_tags
-
-## playlists テーブル
-
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| name      | string     | null: false                    |
-| user      | references | null: false, foreign_key: true |
-| song      | references | null: false, foreign_key: true |
-
--belongs_to :user
--belongs_to :item
+# ローカルでの動作方法
+以下のコマンドを順に実行。  
+% git clone https://github.com/hossan09/favorite-song
+% cd xxxxxx  
+% bundle install  
+% yarn install
+# 工夫したポイント
