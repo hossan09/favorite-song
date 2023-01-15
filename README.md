@@ -1,24 +1,61 @@
-# README
+# アプリケーション名
+FavoriteSong(作成途中)
+# アプリケーション概要
+好きな音楽をコメントやタグをつけて投稿できる。
+投稿されたデータから曲名、アーティスト名、タグ等で対象の曲となるものを検索しプレイリストを作成することができる。
+# URL
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# テスト用アカウント
+* Basic認証ユーザー名: 
+* Basic認証パスワード: 
+* メールアドレス: 
+* パスワード: 
 
-Things you may want to cover:
+# 利用方法
+## 投稿
+* ヘッダーの新規登録ボタンよりユーザー登録をする。
+* おすすめの曲をコメントやタグをつけて投稿する。
+* 投稿内容は一覧で表示され、他のユーザーの投稿に対しいいねボタンを押せる
 
-* Ruby version
+## プレイリスト作成
+* 投稿されている曲を選んでプレイリストを作成できる。
+* 他のユーザーのプレイリストをブックマークとして保存できる。
 
-* System dependencies
+## 検索
+* 検索フォームより曲名やアーティスト、その曲についているタグで検索した結果を一覧表示できる。
 
-* Configuration
 
-* Database creation
+# アプリケーションを作成した背景
+何かの拍子に自分が気に入った曲に出会うことはあるかと思いますが
+その発見の機会を手軽に増やしたいと思いました。
+そこで曲にタグを複数つけて投稿し、それを検索できるようにすることで
+自分の探している曲を手っ取り早く見つけることができると思いこのアプリを制作しました。
 
-* Database initialization
+# 実装した機能について画像やGIFおよびその説明
 
-* How to run the test suite
+# 実装予定の機能
+* ユーザーのフォロー機能
+* 曲の試聴機能
+* 曲のカテゴリ(ジャンル、BPM等)の充実
+* コメント機能
 
-* Services (job queues, cache servers, search engines, etc.)
+# データベース設計
+画像
+# 画面遷移図
+画像
 
-* Deployment instructions
+# 開発環境
+* フロントエンド
+* バックエンド
+* インフラ
+* テスト
+* テキストエディタ
+* タスク管理
 
-* ...
+# ローカルでの動作方法
+以下のコマンドを順に実行。  
+% git clone https://github.com/hossan09/favorite-song
+% cd xxxxxx  
+% bundle install  
+% yarn install
+# 工夫したポイント
