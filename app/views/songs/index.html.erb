@@ -1,5 +1,16 @@
 <header>
 ヘッダー
+    <% if user_signed_in? %>
+      <ul class=''>
+        <li><%= link_to current_user.nickname, "#", class: "" %></li> 
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "" %></li> 
+      </ul>
+    <% else %>
+      <ul class=''>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "" %></li>
+      </ul>
+    <% end %>
 </header>
 
 <h3>トップページ</h3>
