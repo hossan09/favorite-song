@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_21_065907) do
+ActiveRecord::Schema.define(version: 2023_01_23_132038) do
 
   create_table "playlists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 2023_01_21_065907) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["playlist_id"], name: "index_song_playlists_on_playlist_id"
     t.index ["song_id"], name: "index_song_playlists_on_song_id"
+  end
+
+  create_table "song_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "song_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["song_id"], name: "index_song_tags_on_song_id"
+    t.index ["tag_id"], name: "index_song_tags_on_tag_id"
   end
 
   create_table "songs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -64,6 +73,8 @@ ActiveRecord::Schema.define(version: 2023_01_21_065907) do
 
   add_foreign_key "song_playlists", "playlists"
   add_foreign_key "song_playlists", "songs"
+  add_foreign_key "song_tags", "songs"
+  add_foreign_key "song_tags", "tags"
   add_foreign_key "songs", "playlists"
   add_foreign_key "songs", "tags"
   add_foreign_key "songs", "users"

@@ -5,12 +5,13 @@ class SongsController < ApplicationController
   end
 
   def new
-    @song = Song.new
+    @song_form = SongForm.new
   end
 
   def create
-    @song = Song.new(song_params)
-    if @song.save
+    @song_form = SongForm.new(song_form_params)
+    if @song_form.valid?
+      @song_form.save
       redirect_to root_path
     else
       render :new
@@ -18,7 +19,7 @@ class SongsController < ApplicationController
   end
 
   private
-  def song_params
-    params.require(:song).permit(:name, :artist, :album, :text, :link, :tag).merge(user_id: current_user.id)
+  def song_form_params
+    params.require(:song_form).permit(:name, :artist, :album, :text, :link, :tag_id).merge(user_id: current_user.id)
   end
 end
