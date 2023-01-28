@@ -1,7 +1,8 @@
 class SongsController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new, :edit]
 
   def index
+    @songs = Song.all
   end
 
   def new
@@ -16,6 +17,15 @@ class SongsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   private
