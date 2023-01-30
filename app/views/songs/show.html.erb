@@ -1,1 +1,11 @@
-<h3>showページ</h3>
+<h2>showページ</h2>
+<div class="">
+  <h3>曲名 / アーティスト</h3>
+    <%= @song.name %>/<%= @song.artist %><br>
+  <h3>アルバム</h3>
+    <%= @song.album %><br>
+  <h3>コメント</h3>
+    <%= @song.text %>
+  <h3>URL</h3>
+  <%= link_to "#{@song.link}", @song.link %>
+</div>
