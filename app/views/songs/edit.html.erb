@@ -1,11 +1,11 @@
-<h3>投稿ページ</h3>
+<h3>編集ページ</h3>
 
-<%= form_with model: @song_form,url: songs_path, method: :post, local: true do |form| %>
+<%= form_with model: @song_form,url: song_path, method: :patch, local: true do |form| %>
     <%= form.text_field :name, placeholder:"曲名" %>
     <%= form.text_field :artist, placeholder:"アーティスト" %>
     <%= form.text_field :album, placeholder:"アルバム" %>
     <%= form.text_area :text, placeholder:"コメント" %>
     <%#= form.text_field :tag_id, placeholder:"タグ" %>
     <%= form.text_field :link, placeholder:"URL" %>
-    <%= form.submit '投稿する' %>
+    <%= form.submit '更新する' %>
 <% end %>
