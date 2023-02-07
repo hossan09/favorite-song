@@ -21,6 +21,7 @@
   <li class=''>
     <%= link_to song_path(song.id) do %>
         <%= song.name %>/<%= song.artist %>
+        ◯URL:<%= link_to "#{song.link}", song.link %>
     <% end %>
   </li>
 <% end %>

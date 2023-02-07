@@ -45,7 +45,7 @@ class SongsController < ApplicationController
 
   private
   def song_form_params
-    params.require(:song_form).permit(:name, :artist, :album, :text, :link, :tag_id).merge(user_id: current_user.id)
+    params.require(:song_form).permit(:name, :artist, :album, :text, :tag_name, :link).merge(user_id: current_user.id)
   end
 
   def set_song
