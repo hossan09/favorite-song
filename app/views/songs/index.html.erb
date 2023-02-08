@@ -14,6 +14,17 @@
 </header>
 
 <h3>トップページ</h3>
+<%= link_to '投稿する', new_song_path, class:"" %>
+
+<% @songs.each do |song| %>
+
+  <li class=''>
+    <%= link_to song_path(song.id) do %>
+        <%= song.name %>/<%= song.artist %>
+        ◯URL:<%= link_to "#{song.link}", song.link %>
+    <% end %>
+  </li>
+<% end %>
 
 
  <footer>
