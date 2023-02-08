@@ -26,6 +26,7 @@ class SongsController < ApplicationController
   def edit
     song_attributes = @song.attributes
     @song_form = SongForm.new(song_attributes)
+    @song_form.tag_name = @song.tags.first&.tag_name
   end
 
   def update
